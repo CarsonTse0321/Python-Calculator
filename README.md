@@ -6,3 +6,4 @@ I try to make it like a exam calculator that being widely used by HKDSE candidat
 In this calculator, you can use the basic calculation tools by using the symbol like + - * /
 
 Besides, you can also use this calculator to solve quadratic equation with one unknown by typing 01; find the area of a triangle with 3 given sides by heron's formula 02 ; find the length of the oppo. side by cos formula 03.
+new fucntion: 04 mode can calculate the compound interest and the new total amount of money.
