@@ -1,4 +1,3 @@
-#This is a python calculator for some simple calculations
 
 operation = input("please enter the calculation symbol (sum : + , minus : - , product : * , division : / , Quadratic equation : 01 , heron's formula : 02 , cos formula : 03 , Compound Interest : 04 )")
 
@@ -21,36 +20,88 @@ elif operation == "*" :
 
 elif operation == "/" :
     num1 = float(input("please enter the first number:"))
-    num2 = float(input("please enter the second number:"))
+    num2 = 0
+    while num2 == 0:
+        num2 = float(input("please enter the second number:"))
+        if num2 == 0:
+            print("The second number cannot be zero cuz you cannot divide by zero.")
     result = num1 / num2
 
 elif operation == "01" :
     num1 = float(input("please enter the first number:"))
     num2 = float(input("please enter the second number:"))
     num3 = float(input("please enter the third number:"))
+    dalta = num2**2 - 4*num1*num3
     root1 = (-num2 + (num2**2 - 4*num1*num3)**0.5) / (2*num1)
     root2 = (-num2 - (num2**2 - 4*num1*num3)**0.5) / (2*num1)
 
 elif operation == "02" :
-    num1 = float(input("please enter the first number:"))
-    num2 = float(input("please enter the second number:"))
-    num3 = float(input("please enter the third number:"))
+    num1 = 0
+    num2 = 0
+    num3 = 0
+    while num1 <= 0:
+        num1 = float(input("please enter the first number:"))
+        if num1 <= 0:
+            print("Length of triangle must be a positive number.")
+    while num2 <= 0:
+        num2 = float(input("please enter the second number:"))
+        if num2 <= 0:
+            print("Length of triangle must be a positive number.")
+    while num3 <= 0:
+        num3 = float(input("please enter the third number:"))
+        if num3 <= 0:
+            print("Length of triangle must be a positive number.")
+    if (num1 + num2 <= num3) or (num1 + num3 <= num2) or (num2 + num3 <= num1):
+        print("The triangle is not possible.")
+        exit()
     s = (num1 + num2 + num3)/2
     area = (s*(s-num1)*(s-num2)*(s-num3))**0.5
 
 elif operation == "03" :
-    num1 = float(input("please enter the first number:"))
-    num2 = float(input("please enter the second number:"))
-    angle=float(input("please enter the angle in degrees:"))
+    num1 = 0
+    num2 = 0
+    angle = 0
+    while num1 <= 0:
+        num1 = float(input("please enter the first number:"))
+        if num1 <= 0:
+            print("Length of triangle must be a positive number.")
+    while num2 <= 0:
+        num2 = float(input("please enter the second number:"))
+        if num2 <= 0:
+            print("Length of triangle must be a positive number.")
+    while angle <= 0:
+        angle = float(input("please enter the angle:"))
+        if angle <= 0:
+            print("Angle of triangle must be a positive number.")
+    
     c = (num1**2 + num2**2 - 2*num1*num2*math.cos(math.radians(angle)))**0.5
+    
+    if num1 + num2 <= c or c + num1 <= num2 or c + num2 <= num1:
+        print("The triangle is not possible.")
+        exit()
 
 elif operation == "04" :
-    principal = float(input("Enter the principal: "))
+    principal = 0
 
-    interest_rate = float(input("Enter the interest rate (in %): "))
+    while principal <= 0:
+        principal = float(input("Enter the principal amount: "))
+        if principal <= 0:
+            print("The principal amount must be a positive number.")
 
-    time = float(input("Enter the time (in year): "))
+    interest_rate = 0
 
+    while interest_rate <= 0:
+        interest_rate = float(input("Enter the interest rate (in %) per year: "))
+        if interest_rate <= 0:
+            print("interest_rate must be positive number.")
+
+    time = 0
+
+    while time <= 0:
+        time = float(input("Enter the time (in year): "))
+        if time <= 0:
+            print("Time must be positive number.")
+       
     calme = input("How does it calculate (annually, quarterly, halfyear):")
 
     if calme == "annually":
@@ -63,15 +114,26 @@ elif operation == "04" :
         ans = principal * (1 + interest_rate/200) ** (time * 2)
 
     else:
-        print("Plz make sure you enter the right inputs.")
-        quit()
+        print("Plz make sure you enter the correct inputs.")
 
 else:
     print("please enter the correct symbol")
     exit()
 
 if operation == "01":
-    print(f"The roots of the equation are {root1} and {root2}")
+    if {dalta} == 0:
+        print({dalta})
+        print("The equation has one real root only.")
+        print(f"The root of the equation is {root1}")
+
+    elif {dalta} < 0:
+        print({dalta})
+        print("The equation has no real root.")
+    
+    else:
+        print({dalta}) 
+        print("The equation has two real roots.")
+        print(f"The roots of the equation are {root1} and {root2}")
 
 elif operation == "02":
     print(f"The area of the triangle is {area}")
