@@ -1,5 +1,5 @@
 
-operation = input("please enter the calculation symbol (sum : + , minus : - , product : * , division : / , Quadratic equation : 01 , heron's formula : 02 , cos formula : 03 , Compound Interest : 04 )")
+operation = input("please enter the calculation symbol (sum : + , minus : - , product : * , division : / , Quadratic equation : 01 , heron's formula : 02 , cos formula : 03 , Compound Interest : 04 , Sigma(Sum) : 05 )")
 
 import math
 
@@ -116,6 +116,29 @@ elif operation == "04" :
     else:
         print("Plz make sure you enter the correct inputs.")
 
+elif operation == "05" :
+    Starting_index = 0
+    Final_index = 0
+    
+    while Starting_index <= 0:
+        Starting_index = int(input("Enter the starting index:"))
+        if Starting_index <= 0:
+            print("Starting index must be a positive number.")
+    
+    while Final_index <= 0:
+        Final_index = int(input("Enter the final index:"))
+        if Final_index <= 0:
+            print("Final index must be a positive number.")
+
+    while Starting_index > Final_index:
+        print("Final index must be greater than starting index.")
+        Final_index = int(input("Enter the final index:"))
+    ans05 = 0
+
+    for x in range(Starting_index, Final_index + 1, 1):
+        ans05 += x
+    
+
 else:
     print("please enter the correct symbol")
     exit()
@@ -145,6 +168,9 @@ elif operation == "04":
     interest = ans - principal
 
     print(f"The new total amount of money is $ {round(ans,2)} , the interest is ${round(interest,2)}")
+
+elif operation == "05":
+    print(f"The sum is {ans05}")
 
 else:
     print("ANS is",{round(result,2)})
