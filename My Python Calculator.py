@@ -1,5 +1,5 @@
 
-operation = input("please enter the calculation symbol (sum : + , minus : - , product : * , division : / , Quadratic equation : 01 , heron's formula : 02 , cos formula : 03 , Compound Interest : 04 , Sigma(Sum) : 05 )")
+operation = input("please enter the calculation symbol (sum : + , minus : - , product : * , division : / , Quadratic equation : 01 , heron's formula : 02 , cos formula : 03 , Compound Interest : 04 , Sigma(Sum) : 05 , prime number checking : 06 )")
 
 import math
 
@@ -138,7 +138,24 @@ elif operation == "05" :
     for x in range(Starting_index, Final_index + 1, 1):
         ans05 += x
     
+elif operation == "06" :
+    num = 0
 
+    while num <= 1:
+        num = int(input("Enter a number: "))
+        if num <= 1:
+            print("num must be greater than 1")
+        elif num == 2:
+            print("Prime")
+        else:
+            for x in range(2, num):
+                if num % x == 0:
+                    print("Not Prime")
+                    break
+                else:
+                    print("Prime")
+                    break
+    exit()
 else:
     print("please enter the correct symbol")
     exit()
